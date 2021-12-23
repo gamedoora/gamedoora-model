@@ -46,7 +46,7 @@ jobs:
     - name: Build with Maven
       run: mvn -B package --file pom.xml --settings ~/.m2/settings.xml
 
-    - name: Deploy to GitHub
+    - name: Deploy to Repsy
       run: mvn -e -X --settings settings.xml -Drepo.id=repsy -Drepo.login=${{secrets.USER}} -Drepo.pwd=${{secrets.PASS}}  deploy 
     - name: Commit files
       run: |
@@ -55,7 +55,7 @@ jobs:
         git commit -m "Version upgrade" -a
         echo "TAG = $GIT_TAG"
         git tag "$GIT_TAG"
-        git push origin master
+        git push origin main
         git push origin "$GIT_TAG"
       env:
        repo-token: ${{ secrets.GITHUB_TOKEN }}
