@@ -6,6 +6,6 @@ The data model used by the Gamedoora backend
 - Maven 3.3 or higher 
 
 ## Build 
-'''
+```
 mvnw clean install
-'''
+```
