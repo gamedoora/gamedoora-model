@@ -14,7 +14,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "role")
-public class Role implements Serializable {
+public class GdRole implements Serializable {
 
 	@Id
 	@GeneratedValue

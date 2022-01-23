@@ -17,7 +17,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(schema = "projects")
-public class Projects {
+public class GdProjects {
 
 	@Id
 	@GeneratedValue

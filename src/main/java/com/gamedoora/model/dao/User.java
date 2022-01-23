@@ -113,14 +113,14 @@ public class User implements Serializable {
 	@Column(name = "unconfirmed_email", table = "users")
 	private String unconfirmedEmail;
 	@OneToMany
-	private List<StoryUser> storyUsers;
+	private List<GdStoryUser> storyUsers;
 
 	@OneToMany
-	private List<StudioUserRequest> studioUserRequests;
+	private List<GdStudioUserRequest> studioUserRequests;
 
 	@ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	@JoinTable(name = "users_role", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
-	private Set<Role> roles = new HashSet<>();
+	private Set<GdRole> roles = new HashSet<>();
 
 	public Long getId() {
 		return id;
@@ -282,49 +282,49 @@ public class User implements Serializable {
 		this.unconfirmedEmail = unconfirmedEmail;
 	}
 
-	public List<StoryUser> getStoryUsers() {
+	public List<GdStoryUser> getStoryUsers() {
 		if (storyUsers == null) {
 			storyUsers = new ArrayList<>();
 		}
 		return storyUsers;
 	}
 
-	public void setStoryUsers(List<StoryUser> storyUsers) {
+	public void setStoryUsers(List<GdStoryUser> storyUsers) {
 		this.storyUsers = storyUsers;
 	}
 
-	public void addStoryUser(StoryUser storyUser) {
+	public void addStoryUser(GdStoryUser storyUser) {
 		getStoryUsers().add(storyUser);
 	}
 
-	public void removeStoryUser(StoryUser storyUser) {
+	public void removeStoryUser(GdStoryUser storyUser) {
 		getStoryUsers().remove(storyUser);
 	}
 
-	public List<StudioUserRequest> getStudioUserRequests() {
+	public List<GdStudioUserRequest> getStudioUserRequests() {
 		if (studioUserRequests == null) {
 			studioUserRequests = new ArrayList<>();
 		}
 		return studioUserRequests;
 	}
 
-	public void setStudioUserRequests(List<StudioUserRequest> studioUserRequests) {
+	public void setStudioUserRequests(List<GdStudioUserRequest> studioUserRequests) {
 		this.studioUserRequests = studioUserRequests;
 	}
 
-	public void addStudioUserRequest(StudioUserRequest studioUserRequest) {
+	public void addStudioUserRequest(GdStudioUserRequest studioUserRequest) {
 		getStudioUserRequests().add(studioUserRequest);
 	}
 
-	public void removeStudioUserRequest(StudioUserRequest studioUserRequest) {
+	public void removeStudioUserRequest(GdStudioUserRequest studioUserRequest) {
 		getStudioUserRequests().remove(studioUserRequest);
 	}
 	
-	public Set<Role> getRoles() {
+	public Set<GdRole> getRoles() {
 		return roles;
 	}
 
-	public void setRoles(Set<Role> roles) {
+	public void setRoles(Set<GdRole> roles) {
 		this.roles = roles;
 	}
 

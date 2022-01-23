@@ -18,7 +18,7 @@ import javax.persistence.UniqueConstraint;
 
 @Entity
 @Table(name = "stories", uniqueConstraints = @UniqueConstraint(columnNames = {"state_id", "created_at"}))
-public class Story implements Serializable {
+public class GdStory implements Serializable {
 
     @Id
     @GeneratedValue
@@ -55,9 +55,9 @@ public class Story implements Serializable {
     @Temporal(TemporalType.TIMESTAMP)
     private Date updatedAt;
     @OneToMany
-    private List<StoryUser> storyUsers;
+    private List<GdStoryUser> storyUsers;
     @OneToMany
-    private List<StudioStoryAsset> studioStoryAssets;
+    private List<GdStudioStoryAsset> studioStoryAssets;
 
     public Integer getId() {
         return id;
@@ -139,41 +139,41 @@ public class Story implements Serializable {
         this.updatedAt = updatedAt;
     }
 
-    public List<StoryUser> getStoryUsers() {
+    public List<GdStoryUser> getStoryUsers() {
         if (storyUsers == null) {
             storyUsers = new ArrayList<>();
         }
         return storyUsers;
     }
 
-    public void setStoryUsers(List<StoryUser> storyUsers) {
+    public void setStoryUsers(List<GdStoryUser> storyUsers) {
         this.storyUsers = storyUsers;
     }
 
-    public void addStoryUser(StoryUser storyUser) {
+    public void addStoryUser(GdStoryUser storyUser) {
         getStoryUsers().add(storyUser);
     }
 
-    public void removeStoryUser(StoryUser storyUser) {
+    public void removeStoryUser(GdStoryUser storyUser) {
         getStoryUsers().remove(storyUser);
     }
 
-    public List<StudioStoryAsset> getStudioStoryAssets() {
+    public List<GdStudioStoryAsset> getStudioStoryAssets() {
         if (studioStoryAssets == null) {
             studioStoryAssets = new ArrayList<>();
         }
         return studioStoryAssets;
     }
 
-    public void setStudioStoryAssets(List<StudioStoryAsset> studioStoryAssets) {
+    public void setStudioStoryAssets(List<GdStudioStoryAsset> studioStoryAssets) {
         this.studioStoryAssets = studioStoryAssets;
     }
 
-    public void addStudioStoryAsset(StudioStoryAsset studioStoryAsset) {
+    public void addStudioStoryAsset(GdStudioStoryAsset studioStoryAsset) {
         getStudioStoryAssets().add(studioStoryAsset);
     }
 
-    public void removeStudioStoryAsset(StudioStoryAsset studioStoryAsset) {
+    public void removeStudioStoryAsset(GdStudioStoryAsset studioStoryAsset) {
         getStudioStoryAssets().remove(studioStoryAsset);
     }
 

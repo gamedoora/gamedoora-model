@@ -12,28 +12,25 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 @Entity
-@Table(name = "story_users")
-public class StoryUser implements Serializable {
+@Table(name = "identities")
+public class GdIdentity implements Serializable {
 
     @Id
     @GeneratedValue
-    @Column(name = "id", table = "story_users", nullable = false)
+    @Column(name = "id", table = "identities", nullable = false)
     private Integer id;
+    @Basic
+    @Column(name = "uid", table = "identities")
+    private String uid;
+    @Basic
+    @Column(name = "provider", table = "identities")
+    private String provider;
     @Basic(optional = false)
-    @Column(name = "story_id", table = "story_users", nullable = false)
-    private int storyId;
-    @Basic(optional = false)
-    @Column(name = "user_id", table = "story_users", nullable = false)
-    private int userId;
-    @Basic(optional = false)
-    @Column(name = "role", table = "story_users", nullable = false)
-    private int role;
-    @Basic(optional = false)
-    @Column(name = "created_at", table = "story_users", nullable = false)
+    @Column(name = "created_at", table = "identities", nullable = false)
     @Temporal(TemporalType.TIMESTAMP)
     private Date createdAt;
     @Basic(optional = false)
-    @Column(name = "updated_at", table = "story_users", nullable = false)
+    @Column(name = "updated_at", table = "identities", nullable = false)
     @Temporal(TemporalType.TIMESTAMP)
     private Date updatedAt;
 
@@ -45,28 +42,20 @@ public class StoryUser implements Serializable {
         this.id = id;
     }
 
-    public int getStoryId() {
-        return storyId;
+    public String getUid() {
+        return uid;
     }
 
-    public void setStoryId(int storyId) {
-        this.storyId = storyId;
+    public void setUid(String uid) {
+        this.uid = uid;
     }
 
-    public int getUserId() {
-        return userId;
+    public String getProvider() {
+        return provider;
     }
 
-    public void setUserId(int userId) {
-        this.userId = userId;
-    }
-
-    public int getRole() {
-        return role;
-    }
-
-    public void setRole(int role) {
-        this.role = role;
+    public void setProvider(String provider) {
+        this.provider = provider;
     }
 
     public Date getCreatedAt() {

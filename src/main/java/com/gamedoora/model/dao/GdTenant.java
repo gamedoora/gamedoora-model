@@ -12,25 +12,28 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 @Entity
-@Table(name = "studio_story_assets")
-public class StudioStoryAsset implements Serializable {
+@Table(name = "tenants")
+public class GdTenant implements Serializable {
 
     @Id
     @GeneratedValue
-    @Column(name = "id", table = "studio_story_assets", nullable = false)
+    @Column(name = "id", table = "tenants", nullable = false)
     private Integer id;
     @Basic
-    @Column(name = "story_id", table = "studio_story_assets")
-    private Integer storyId;
+    @Column(name = "subdomain", table = "tenants")
+    private String subdomain;
     @Basic
-    @Column(name = "studio_asset_id", table = "studio_story_assets")
-    private Integer studioAssetId;
+    @Column(name = "entity_id", table = "tenants")
+    private Integer entityId;
+    @Basic
+    @Column(name = "entity_type", table = "tenants")
+    private String entityType;
     @Basic(optional = false)
-    @Column(name = "created_at", table = "studio_story_assets", nullable = false)
+    @Column(name = "created_at", table = "tenants", nullable = false)
     @Temporal(TemporalType.TIMESTAMP)
     private Date createdAt;
     @Basic(optional = false)
-    @Column(name = "updated_at", table = "studio_story_assets", nullable = false)
+    @Column(name = "updated_at", table = "tenants", nullable = false)
     @Temporal(TemporalType.TIMESTAMP)
     private Date updatedAt;
 
@@ -42,20 +45,28 @@ public class StudioStoryAsset implements Serializable {
         this.id = id;
     }
 
-    public Integer getStoryId() {
-        return storyId;
+    public String getSubdomain() {
+        return subdomain;
     }
 
-    public void setStoryId(Integer storyId) {
-        this.storyId = storyId;
+    public void setSubdomain(String subdomain) {
+        this.subdomain = subdomain;
     }
 
-    public Integer getStudioAssetId() {
-        return studioAssetId;
+    public Integer getEntityId() {
+        return entityId;
     }
 
-    public void setStudioAssetId(Integer studioAssetId) {
-        this.studioAssetId = studioAssetId;
+    public void setEntityId(Integer entityId) {
+        this.entityId = entityId;
+    }
+
+    public String getEntityType() {
+        return entityType;
+    }
+
+    public void setEntityType(String entityType) {
+        this.entityType = entityType;
     }
 
     public Date getCreatedAt() {

@@ -12,25 +12,22 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 @Entity
-@Table(name = "identities")
-public class Identity implements Serializable {
+@Table(name = "tags")
+public class GdTag implements Serializable {
 
     @Id
     @GeneratedValue
-    @Column(name = "id", table = "identities", nullable = false)
+    @Column(name = "id", table = "tags", nullable = false)
     private Integer id;
-    @Basic
-    @Column(name = "uid", table = "identities")
-    private String uid;
-    @Basic
-    @Column(name = "provider", table = "identities")
-    private String provider;
     @Basic(optional = false)
-    @Column(name = "created_at", table = "identities", nullable = false)
+    @Column(name = "name", table = "tags", nullable = false, length = 128)
+    private String name;
+    @Basic(optional = false)
+    @Column(name = "created_at", table = "tags", nullable = false)
     @Temporal(TemporalType.TIMESTAMP)
     private Date createdAt;
     @Basic(optional = false)
-    @Column(name = "updated_at", table = "identities", nullable = false)
+    @Column(name = "updated_at", table = "tags", nullable = false)
     @Temporal(TemporalType.TIMESTAMP)
     private Date updatedAt;
 
@@ -42,20 +39,12 @@ public class Identity implements Serializable {
         this.id = id;
     }
 
-    public String getUid() {
-        return uid;
+    public String getName() {
+        return name;
     }
 
-    public void setUid(String uid) {
-        this.uid = uid;
-    }
-
-    public String getProvider() {
-        return provider;
-    }
-
-    public void setProvider(String provider) {
-        this.provider = provider;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public Date getCreatedAt() {

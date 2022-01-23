@@ -17,7 +17,7 @@ import javax.persistence.TemporalType;
 
 @Entity
 @Table(name = "studio_assets")
-public class StudioAsset implements Serializable {
+public class GdStudioAsset implements Serializable {
 
     @Id
     @GeneratedValue
@@ -95,7 +95,7 @@ public class StudioAsset implements Serializable {
     @Temporal(TemporalType.TIMESTAMP)
     private Date updatedAt;
     @OneToMany
-    private List<StudioStoryAsset> studioStoryAssets;
+    private List<GdStudioStoryAsset> studioStoryAssets;
 
     public Integer getId() {
         return id;
@@ -281,22 +281,22 @@ public class StudioAsset implements Serializable {
         this.updatedAt = updatedAt;
     }
 
-    public List<StudioStoryAsset> getStudioStoryAssets() {
+    public List<GdStudioStoryAsset> getStudioStoryAssets() {
         if (studioStoryAssets == null) {
             studioStoryAssets = new ArrayList<>();
         }
         return studioStoryAssets;
     }
 
-    public void setStudioStoryAssets(List<StudioStoryAsset> studioStoryAssets) {
+    public void setStudioStoryAssets(List<GdStudioStoryAsset> studioStoryAssets) {
         this.studioStoryAssets = studioStoryAssets;
     }
 
-    public void addStudioStoryAsset(StudioStoryAsset studioStoryAsset) {
+    public void addStudioStoryAsset(GdStudioStoryAsset studioStoryAsset) {
         getStudioStoryAssets().add(studioStoryAsset);
     }
 
-    public void removeStudioStoryAsset(StudioStoryAsset studioStoryAsset) {
+    public void removeStudioStoryAsset(GdStudioStoryAsset studioStoryAsset) {
         getStudioStoryAssets().remove(studioStoryAsset);
     }
 

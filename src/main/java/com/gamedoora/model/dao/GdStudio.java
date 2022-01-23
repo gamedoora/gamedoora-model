@@ -17,7 +17,7 @@ import javax.persistence.TemporalType;
 
 @Entity
 @Table(name = "studios")
-public class Studio implements Serializable {
+public class GdStudio implements Serializable {
 
     @Id
     @GeneratedValue
@@ -51,9 +51,9 @@ public class Studio implements Serializable {
     @Column(name = "description", table = "studios", length = 65535)
     private String description;
     @OneToMany
-    private List<StudioAsset> studioAssets;
+    private List<GdStudioAsset> studioAssets;
     @OneToMany
-    private List<StudioUserRequest> studioUserRequests;
+    private List<GdStudioUserRequest> studioUserRequests;
 
     public Integer getId() {
         return id;
@@ -127,41 +127,41 @@ public class Studio implements Serializable {
         this.description = description;
     }
 
-    public List<StudioAsset> getStudioAssets() {
+    public List<GdStudioAsset> getStudioAssets() {
         if (studioAssets == null) {
             studioAssets = new ArrayList<>();
         }
         return studioAssets;
     }
 
-    public void setStudioAssets(List<StudioAsset> studioAssets) {
+    public void setStudioAssets(List<GdStudioAsset> studioAssets) {
         this.studioAssets = studioAssets;
     }
 
-    public void addStudioAsset(StudioAsset studioAsset) {
+    public void addStudioAsset(GdStudioAsset studioAsset) {
         getStudioAssets().add(studioAsset);
     }
 
-    public void removeStudioAsset(StudioAsset studioAsset) {
+    public void removeStudioAsset(GdStudioAsset studioAsset) {
         getStudioAssets().remove(studioAsset);
     }
 
-    public List<StudioUserRequest> getStudioUserRequests() {
+    public List<GdStudioUserRequest> getStudioUserRequests() {
         if (studioUserRequests == null) {
             studioUserRequests = new ArrayList<>();
         }
         return studioUserRequests;
     }
 
-    public void setStudioUserRequests(List<StudioUserRequest> studioUserRequests) {
+    public void setStudioUserRequests(List<GdStudioUserRequest> studioUserRequests) {
         this.studioUserRequests = studioUserRequests;
     }
 
-    public void addStudioUserRequest(StudioUserRequest studioUserRequest) {
+    public void addStudioUserRequest(GdStudioUserRequest studioUserRequest) {
         getStudioUserRequests().add(studioUserRequest);
     }
 
-    public void removeStudioUserRequest(StudioUserRequest studioUserRequest) {
+    public void removeStudioUserRequest(GdStudioUserRequest studioUserRequest) {
         getStudioUserRequests().remove(studioUserRequest);
     }
 

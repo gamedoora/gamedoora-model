@@ -17,7 +17,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(schema = "skills")
-public class Skills {
+public class GdSkills {
 
 	@Id
 	@GeneratedValue
@@ -33,7 +33,7 @@ public class Skills {
 
 	@ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	@JoinTable(name = "skills_role", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
-	private Set<Role> roles = new HashSet<>();
+	private Set<GdRole> roles = new HashSet<>();
 
 	public Long getId() {
 		return id;
@@ -59,11 +59,11 @@ public class Skills {
 		this.skillDescription = skillDescription;
 	}
 
-	public Set<Role> getRoles() {
+	public Set<GdRole> getRoles() {
 		return roles;
 	}
 
-	public void setRoles(Set<Role> roles) {
+	public void setRoles(Set<GdRole> roles) {
 		this.roles = roles;
 	}
 

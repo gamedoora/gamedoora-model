@@ -13,7 +13,7 @@ import javax.persistence.TemporalType;
 
 @Entity
 @Table(name = "comments")
-public class Comment {
+public class GdComment {
 
     @Id
     @GeneratedValue

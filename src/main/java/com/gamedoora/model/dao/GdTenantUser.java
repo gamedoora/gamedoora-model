@@ -12,22 +12,28 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 @Entity
-@Table(name = "tags")
-public class Tag implements Serializable {
+@Table(name = "tenant_users")
+public class GdTenantUser implements Serializable {
 
     @Id
     @GeneratedValue
-    @Column(name = "id", table = "tags", nullable = false)
+    @Column(name = "id", table = "tenant_users", nullable = false)
     private Integer id;
+    @Basic
+    @Column(name = "tenant_id", table = "tenant_users")
+    private Integer tenantId;
+    @Basic
+    @Column(name = "user_id", table = "tenant_users")
+    private Integer userId;
+    @Basic
+    @Column(name = "role", table = "tenant_users")
+    private String role;
     @Basic(optional = false)
-    @Column(name = "name", table = "tags", nullable = false, length = 128)
-    private String name;
-    @Basic(optional = false)
-    @Column(name = "created_at", table = "tags", nullable = false)
+    @Column(name = "created_at", table = "tenant_users", nullable = false)
     @Temporal(TemporalType.TIMESTAMP)
     private Date createdAt;
     @Basic(optional = false)
-    @Column(name = "updated_at", table = "tags", nullable = false)
+    @Column(name = "updated_at", table = "tenant_users", nullable = false)
     @Temporal(TemporalType.TIMESTAMP)
     private Date updatedAt;
 
@@ -39,12 +45,28 @@ public class Tag implements Serializable {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public Integer getTenantId() {
+        return tenantId;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setTenantId(Integer tenantId) {
+        this.tenantId = tenantId;
+    }
+
+    public Integer getUserId() {
+        return userId;
+    }
+
+    public void setUserId(Integer userId) {
+        this.userId = userId;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
     }
 
     public Date getCreatedAt() {

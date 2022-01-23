@@ -1,6 +1,5 @@
 package com.gamedoora.model.dao;
 
-import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.Basic;
 import javax.persistence.Column;
@@ -10,30 +9,31 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.persistence.UniqueConstraint;
 
 @Entity
-@Table(name = "tag_entities")
-public class TagEntitiy implements Serializable {
+@Table(name = "states", uniqueConstraints = @UniqueConstraint(columnNames = {"studio_id", "created_at", "name"}))
+public class GdState {
 
     @Id
     @GeneratedValue
-    @Column(name = "id", table = "tag_entities", nullable = false)
+    @Column(name = "id", table = "states", nullable = false)
     private Integer id;
+    @Basic
+    @Column(name = "name", table = "states")
+    private String name;
     @Basic(optional = false)
-    @Column(name = "tag_id", table = "tag_entities", nullable = false)
-    private int tagId;
+    @Column(name = "studio_id", table = "states", nullable = false)
+    private int studioId;
     @Basic(optional = false)
-    @Column(name = "entity_id", table = "tag_entities", nullable = false)
-    private int entityId;
+    @Column(name = "position", table = "states", nullable = false)
+    private int position;
     @Basic(optional = false)
-    @Column(name = "entity_type", table = "tag_entities", nullable = false)
-    private String entityType;
-    @Basic(optional = false)
-    @Column(name = "created_at", table = "tag_entities", nullable = false)
+    @Column(name = "created_at", table = "states", nullable = false)
     @Temporal(TemporalType.TIMESTAMP)
     private Date createdAt;
     @Basic(optional = false)
-    @Column(name = "updated_at", table = "tag_entities", nullable = false)
+    @Column(name = "updated_at", table = "states", nullable = false)
     @Temporal(TemporalType.TIMESTAMP)
     private Date updatedAt;
 
@@ -45,28 +45,28 @@ public class TagEntitiy implements Serializable {
         this.id = id;
     }
 
-    public int getTagId() {
-        return tagId;
+    public String getName() {
+        return name;
     }
 
-    public void setTagId(int tagId) {
-        this.tagId = tagId;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public int getEntityId() {
-        return entityId;
+    public int getStudioId() {
+        return studioId;
     }
 
-    public void setEntityId(int entityId) {
-        this.entityId = entityId;
+    public void setStudioId(int studioId) {
+        this.studioId = studioId;
     }
 
-    public String getEntityType() {
-        return entityType;
+    public int getPosition() {
+        return position;
     }
 
-    public void setEntityType(String entityType) {
-        this.entityType = entityType;
+    public void setPosition(int position) {
+        this.position = position;
     }
 
     public Date getCreatedAt() {

@@ -1,0 +1,4 @@
+<factorypath>
+    <factorypathentry kind="VARJAR" id="M2_REPO/org/mapstruct/mapstruct-processor/1.4.2.Final/mapstruct-processor-1.4.2.Final.jar" enabled="true" runInBatchMode="false"/>
+    <factorypathentry kind="PLUGIN" id="com.amazonaws.eclipse.simpleworkflow" enabled="false" runInBatchMode="false"/>
+</factorypath>
