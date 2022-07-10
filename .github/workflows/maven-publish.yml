@@ -5,13 +5,13 @@ name: Maven Package
 
 on:
   workflow_dispatch:
-  push:
-    branches:
-      - main
+#   push:
+#     branches:
+#       - main
 
 jobs:
   build:
-    if: github.event_name == 'push' && github.ref == 'refs/heads/main' && github.event.pusher.email != 'revision-updater@gamedoora.com'
+    if: (github.event_name == 'workflow_dispatch' || github.event_name == 'push') && (github.event.pusher.email != 'revision-updater@gamedoora.com' && github.ref == 'refs/heads/main')
     runs-on: ubuntu-latest
     permissions:
       contents: read
